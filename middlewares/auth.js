@@ -1,9 +1,7 @@
 const jwt=require('jsonwebtoken')
 const User=require('../models/User')
 
-module.exports={
-  
-  userAuth: async function (req,res,next){
+ async function auth(req,res,next){
     try{
       const token=req.header('Authorization').replace('Bearer ','')
       const verifyData=jwt.verify(token,'myfirstjsw')
@@ -25,4 +23,3 @@ module.exports={
   }
            
   
-} 
